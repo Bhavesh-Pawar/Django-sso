@@ -6,3 +6,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def home(request,*args, **kwargs):
     return HttpResponse(f"Hello {request.user}!!")
+
+def index(request,*args, **kwargs):
+    name = kwargs["name"]
+    return render(request,'index.html',{'name':name})
